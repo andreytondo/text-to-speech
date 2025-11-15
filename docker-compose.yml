@@ -1,0 +1,14 @@
+services:
+  tts:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - TTS_MODEL=tts_models/pt/cv/vits
+    volumes:
+      - ./tts_cache:/tmp/tts_cache
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: '2G'
